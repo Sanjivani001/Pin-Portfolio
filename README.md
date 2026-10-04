@@ -2,7 +2,7 @@
 
 ## Run the website
 
-1. Install Node.js 20.6 or newer.
+1. Install Node.js 20.x (the project is pinned to 20.13.1 in `.nvmrc`).
 2. Install packages with `npm install`.
 3. Copy `.env.example` to `.env`.
 4. Set a private random `SESSION_SECRET` (at least 32 characters), the enquiry inbox, and a verified Resend sender/API key.

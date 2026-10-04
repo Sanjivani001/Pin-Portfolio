@@ -959,5 +959,5 @@ if (command === "create-admin" || command === "reset-admin-password") {
     process.exit(1);
   }
   const server = http.createServer(handleRequest);
-  server.listen(PORT, () => console.log(`Portfolio server listening on http://localhost:${PORT}`));
+  server.listen(PORT, "0.0.0.0", () => console.log(`Portfolio server listening on http://0.0.0.0:${PORT}`));
 }
