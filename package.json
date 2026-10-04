@@ -1,0 +1,14 @@
+{
+  "name": "sanjivani-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

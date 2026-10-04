@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content="Private studio administration." />
+    <title>Studio Desk | Sanjivani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin.css" />
+    <script src="/admin.js" defer></script>
+  </head>
+  <body class="admin-body">
+    <main id="loginView" class="login-view" hidden>
+      <section class="login-card" aria-labelledby="loginTitle">
+        <a class="admin-brand" href="/" aria-label="Back to public portfolio"><span class="brand-mark">S</span><span>Studio Desk</span></a>
+        <p class="admin-eyebrow">Private workspace</p>
+        <h1 id="loginTitle">Welcome back.</h1>
+        <p class="login-intro">Sign in to manage your enquiries, projects and payments.</p>
+        <form id="loginForm" class="admin-form">
+          <label>Email<input name="email" type="email" autocomplete="username" required maxlength="254" /></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required maxlength="256" /></label>
+          <p class="form-message" id="loginMessage" role="alert" hidden></p>
+          <button class="admin-button admin-button-primary" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-setup" id="loginSetup" hidden>No admin account exists yet. From the private project terminal, run <code>node --env-file=.env server.js create-admin</code>, then return here to sign in.</p>
+        <a class="back-link" href="/">← Back to portfolio</a>
+      </section>
+      <div class="login-decoration" aria-hidden="true"><span></span><span></span><span></span></div>
+    </main>
+
+    <div id="dashboardView" class="admin-shell" hidden>
+      <aside class="admin-sidebar" id="adminSidebar">
+        <a class="admin-brand" href="/" aria-label="Sanjivani portfolio"><span class="brand-mark">S</span><span>Studio Desk</span></a>
+        <p class="sidebar-caption">WORKSPACE</p>
+        <nav class="sidebar-nav" aria-label="Admin navigation">
+          <button type="button" data-view="dashboard" class="sidebar-link active"><span>◫</span> Dashboard</button>
+          <button type="button" data-view="enquiries" class="sidebar-link"><span>✉</span> Enquiries <b id="newEnquiryBadge" hidden></b></button>
+          <button type="button" data-view="clients" class="sidebar-link"><span>◉</span> Clients</button>
+          <button type="button" data-view="projects" class="sidebar-link"><span>▦</span> Projects</button>
+          <button type="button" data-view="payments" class="sidebar-link"><span>↗</span> Payments</button>
+          <button type="button" data-view="analytics" class="sidebar-link"><span>⌁</span> Analytics</button>
+          <button type="button" data-view="settings" class="sidebar-link"><span>⚙</span> Settings</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="admin-account"><span class="account-avatar">S</span><span><strong id="adminEmail">Studio Admin</strong><small>Administrator</small></span></div>
+          <button type="button" class="sidebar-link logout-button" id="logoutButton"><span>↪</span> Log out</button>
+          <a class="public-site-link" href="/">↗ View public site</a>
+        </div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <button class="mobile-menu-toggle" type="button" id="mobileMenuToggle" aria-label="Open admin menu" aria-expanded="false">☰</button>
+          <div class="breadcrumbs"><span>Workspace</span><span>/</span><strong id="currentViewName">Dashboard</strong></div>
+          <div class="topbar-right"><span class="live-dot"></span><span>Private workspace</span><span class="topbar-avatar">S</span></div>
+        </header>
+
+        <main id="viewContent" class="admin-content" tabindex="-1"></main>
+      </div>
+      <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
+    </div>
+
+    <dialog class="admin-dialog" id="recordDialog" aria-labelledby="dialogTitle">
+      <form method="dialog" class="dialog-close-wrap"><button class="dialog-close" aria-label="Close dialog">×</button></form>
+      <div id="dialogContent"></div>
+    </dialog>
+    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
